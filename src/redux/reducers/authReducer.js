@@ -1,8 +1,9 @@
-import { SET_CURRENT_USER } from '../actions/types';
+import { SET_CURRENT_USER, SET_SUCCESS_CREDENTIALS } from '../actions/types';
 import isEmpty from 'lodash/isEmpty';
 
 const initialState = {
     isAuthenticated: false,
+    isAuthenticating:false,
     user: {}
 }
 
@@ -12,7 +13,14 @@ export default function(state= initialState, action){
             return{
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),
+                isAuthenticating:false,
                 user: action.payload
+            }
+        case SET_SUCCESS_CREDENTIALS:
+            return{
+                ...state,
+                isAuthenticating: true,
+                isAuthenticated:false
             } 
         default:
             return state;
