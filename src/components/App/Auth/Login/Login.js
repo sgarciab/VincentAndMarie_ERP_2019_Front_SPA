@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {loginUser} from '../../../../redux/actions/authActions';
 
+import './Login.css'
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -58,7 +60,6 @@ class Login extends Component {
 
     render() {
         const {email,password, errors} = this.state;
-        const {user} = this.props;
         console.log(errors);
         return (
             <div className="login">

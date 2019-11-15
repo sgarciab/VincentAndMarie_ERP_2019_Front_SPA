@@ -22,10 +22,10 @@ class Landing extends Component {
                 <div className="container">
                     <div className="row">
                     <div className="col-md-12 text-center">
-                        <h1 className="display-3 mb-4">Developer
+                        <h1 className="display-3 mb-4">Vincent & Marie ERP
                         </h1>
                         <hr />
-                        {<NavLink  className="btn btn-lg btn-info mr-2" exact strict to="/register">Sign Up</NavLink>}
+                        {/* {<NavLink  className="btn btn-lg btn-info mr-2" exact strict to="/register">Sign Up</NavLink>} */}
                         {<NavLink className="btn btn-lg btn-light" exact strict to="/login">Login</NavLink>}
                     </div>
                     </div>

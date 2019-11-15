@@ -6,7 +6,7 @@ import Login from '../Auth/Login/Login';
 import Register from '../Auth/Register/Register';
 import Token from '../Auth/Token/Token';
 import Dashboard from '../Dashboard/Dashboard';
-import PrivateRoute from '../common/PrivateRoute';
+import PrivateTemplatedRoute from '../common/PrivateTemplatedRoute';
 
 const Routes = (
     <div>
@@ -15,7 +15,11 @@ const Routes = (
         <Route path="/token" exact strict component={Token} />
         <Route path="/register" exact strict component={Register} />
         <Switch>
-            <PrivateRoute path="/dashboard" exact strict component={Dashboard} />
+            <PrivateTemplatedRoute path="/dashboard"   component={Dashboard} />
+            <PrivateTemplatedRoute path="/dashboard/proveedores"   component={Dashboard} />
+            <PrivateTemplatedRoute path="/dashboard/productos"   component={Dashboard} />
+            <PrivateTemplatedRoute path="/dashboard/ventas"   component={Dashboard} />
+            <PrivateTemplatedRoute path="/dashboard/test" component={Dashboard}/>
         </Switch>
     </div>
 )

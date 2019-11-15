@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
-
+import {connect} from 'react-redux';
 import './App.css';
 import store from '../../redux/store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../../utils/setAuthToken';
 import {setCurrentUser, logoutUser} from '../../redux/actions/authActions';
+
 
 import Aux from './Hoc/Aux';
 import Routes from './Routes/Routes';
@@ -13,11 +14,11 @@ import Navbar from './Layout/Navbar/Navbar';
 import Footer from './Layout/Footer/Footer';
 
 // Check token in localStorage
-if(localStorage.jwtToken){
+if(localStorage.accessToken){
   // Set auth token header auth
-  setAuthToken(localStorage.jwtToken);
+  setAuthToken(localStorage.accessToken);
   // Decode auth token and get user info
-  let decoded = jwt_decode(localStorage.jwtToken);
+  let decoded = jwt_decode(localStorage.accessToken);
   // Dispatch user info
   store.dispatch(setCurrentUser(decoded))
   // Check for expire token
@@ -34,18 +35,34 @@ if(localStorage.jwtToken){
 
 class App extends Component {
   render() {
-    return (
-      <Router>
-       <Aux>
-         <div className="ui container">
-           <Navbar />
-              {Routes}
-           <Footer />
-         </div>
-      </Aux>
-   </Router>
-    );
+
+    const {auth} = this.props;
+    
+    if (auth.isAuthenticated){
+
+    }else{
+
+    }
+
+      return (
+          <Router>
+              <Aux>
+                <div className="App" >
+                  <Navbar />
+                      {Routes}
+                  <Footer />
+                </div>
+              </Aux>
+          </Router>
+      );
   }
 }
 
-export default App;
+const mapStateToProps = ({auth, errors}) =>{
+  return{
+      auth : auth,
+      errors: errors.errors
+  }
+}
+
+export default connect(mapStateToProps)(App);

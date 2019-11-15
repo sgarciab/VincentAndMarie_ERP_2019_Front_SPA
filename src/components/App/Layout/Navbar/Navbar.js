@@ -32,7 +32,7 @@ class Navbar extends Component {
            Links = (
               <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    {<NavLink className="nav-link" exact strict to="/register">Sign Up</NavLink>}
+                    {/* {<NavLink className="nav-link" exact strict to="/register">Sign Up</NavLink>} */}
                   </li>
                   <li className="nav-item">
                     {<NavLink className="nav-link" exact strict to="/login">Login</NavLink>}
@@ -42,9 +42,9 @@ class Navbar extends Component {
         }
 
         return (
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark ">
             <div className="container">
-              {<NavLink className="navbar-brand"  exact strict to="/">Developers</NavLink>}
+              {<NavLink className="navbar-brand"  exact strict to="/">Vincent & Marie</NavLink>}
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                 <span className="navbar-toggler-icon"></span>
               </button>
