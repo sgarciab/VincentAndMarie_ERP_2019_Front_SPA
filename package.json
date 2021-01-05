@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.*",
-    "axios": "^0.18.*",
+    "axios": "^0.21.*",
     "classnames": "^2.2.*",
     "formik": "^2.0.*",
     "jwt-decode": "^2.2.*",
